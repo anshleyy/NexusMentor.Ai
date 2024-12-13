@@ -1,6 +1,6 @@
-## AI_Mock_Interviewer
+## FlashCardGPT
 
-An AI-powered simulator that offers personalized online interview experiences. It takes voice input and provides instant feedback to help you improve.
+An AI-powered application that creates customized flashcards based on any uploaded text file, making studying easier and more effective.
 
 ## Table of Contents
 
@@ -20,20 +20,19 @@ An AI-powered simulator that offers personalized online interview experiences. I
 
 ## Live Demo
 
-https://final-ai-mock-interview.vercel.app/
+https://ai-flash-card-generator-mauve.vercel.app/
 
 ## Features
-- Secure access with social login or email/password authentication.
-- Generate AI-Powered interview questions based on the provided interview details.
-- Converts user responses into text, enabling seamless interaction.
-- Provides AI-driven analysis and feedback based on user interview responses.
+- User-friendly access with social login or email/password authentication.
+- Generate flashcards by uploading text files.
+- Each flashcard contains AI-generated questions and answers for effective study.
+- Save, edit, and organize flashcards within custom folders.
 
 ## Technologies Used
 - Next.js
 - React
-- Drizzle ORM
-- Gemini AI
-- Clerk
+- OpenAI API Key
+- Clerk authentication
 
 
 ## Getting Started
@@ -43,18 +42,18 @@ https://final-ai-mock-interview.vercel.app/
 
 - Next.js
 - Clerk credentials
-- Gemini API Key
+- OpenAI API Key
 
 **How to run the project**
 
 1. Clone the repository:
     ```bash
-    git clone git clone https://github.com/0xmetaschool/ai-mock-interview.git
+    git clone https://github.com/muhammadtalhaamin/AI-Flash-card-generator.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd AI_Mock_Interviewer
+    cd AI_Flashcard_Generator
     ```
 
 3. Install dependencies:
@@ -68,14 +67,11 @@ https://final-ai-mock-interview.vercel.app/
     ```bash
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
     CLERK_SECRET_KEY=
+
     NEXT_PUBLIC_CLERK_SIGN_IN_URL=
     NEXT_PUBLIC_CLERK_SIGN_UP_URL=
-    NEXT_PUBLIC_DRIZZLE_DB_URL=
-    sslmode=
-    NEXT_PUBLIC_GEMINI_API_KEY=
-    NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT=
-    NEXT_PUBLIC_INFORMATION=
-    NEXT_PUBLIC_QUESTION_NOTE=
+
+    OPENAI_API_KEY=
     ```
    
 5. Run the development server:
@@ -89,25 +85,24 @@ Open the browser and go to `http://localhost:3000`. Ensure that everything is lo
 
 ## Screenshots
 
-![Screenshot 1](public/sc1.png)
-![Screenshot 1](public/sc2.png)
-![Screenshot 1](public/sc3.png)
+![Screenshot 1](public/ssc1.png)
+![Screenshot 1](public/ssc2.png)
+![Screenshot 1](public/ssc3.png)
 
 
 ## How to use the application
 
-1. Sign-in using Google, email or facebook account.
-2. Add a new interview and provide job role, description and years of experience.
-3. Respond to AI-generated questions and record them for the feedback.
-4. The AI will evaluate the answers and provide you a complete feedback.
-5. History of user interviews are saved on dashboard and a User can re-attempt the existing interviews from the dashboard as well.
+1. Sign-in using your Google account.
+2. Upload a document to generate flashcards.
+3. Click on any flashcard to view the answer.
+4. Review flashcards through the dashboard, and reuse as needed.
 
 
 ## Contributing
 
 We love contributions! Here's how you can help make the AI-powered FinanceGuru even better:
 
-1. Fork the project (`gh repo fork https://github.com/0xmetaschool/ai-mock-interview.git`)
+1. Fork the project (`gh repo fork https://github.com/muhammadtalhaamin/AI-Flash-card-generator.git`)
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
@@ -119,9 +114,8 @@ This project is licensed under the MIT License - see the [LICENSE file](./LICENS
 
 ## Acknowledgments
 
-- Google Gemini for providing the API
-- Clerk for authenticating the login process
-- Drizzle ORM for allowing to setup the database and stremline the process
+- OpenAI for powering the flashcard generation
+- Clerk for login and authentication
 
 ## Contact
 

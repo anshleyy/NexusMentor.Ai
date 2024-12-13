@@ -3,7 +3,7 @@ import { SignIn } from "@clerk/nextjs";
 
 export default function Page() {
   return (
-    <div className="flex flex-col min-h-[calc(100vh-165px)]">
+    <div className="flex flex-col min-h-[calc(100vh-220px)]">
       <Header />
 
       <section className="flex-grow bg-white">

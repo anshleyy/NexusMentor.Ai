@@ -6,7 +6,7 @@ import InterviewList from './_components/InterviewList'
 
 function Dashboard() {
   return (
-    <div className="flex flex-col min-h-[calc(100vh-165px)] p-10">
+    <div className="flex flex-col min-h-[calc(100vh-220px)] p-10">
       {/* <div className="flex-grow"> */}
 
       <h2 className='font-bold text-3xl text-black'>Dashboard</h2>

@@ -1,125 +1,189 @@
+"use client"
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { Box, VStack, Heading, Text, SimpleGrid, Container, Badge } from '@chakra-ui/react';
-import Header from "./dashboard/_components/Header";
-import Link from 'next/link';
-
-const Feature = ({ title, text }) => (
-  <VStack spacing={3} align="center">
-    <Text fontWeight="bold" fontSize="lg" color="black">{title}</Text>
-    <Text textAlign="center" color="gray.600">{text}</Text>
-  </VStack>
-);
-
-const PriceWrapper = ({ children, isRecommended = false }) => (
-  <Box shadow={isRecommended ? "2xl" : "lg"} borderWidth="1px" borderRadius="xl" borderColor={isRecommended ? "black" : "gray.200"} p={8} bg="white" position="relative" transform={isRecommended ? "scale(1.05)" : "none"} zIndex={isRecommended ? 1 : 0} height="450px" display="flex" flexDirection="column" justifyContent="space-between">
-    {isRecommended && (
-      <Badge position="absolute" top="-4" left="50%" transform="translateX(-50%)" px={3} py={1} bg="black" color="white" fontWeight="bold" fontSize="sm" borderRadius="full">
-        Recommended
-      </Badge>
-    )}
-    {children}
-  </Box>
-);
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Star, Check, Target, BookOpen, Trophy } from "lucide-react";
+import HeroSection from '@/components/ui/HeroSection';
 
 export default function Home() {
+  const [activeReview, setActiveReview] = useState(0);
+
+  const trustedLogos = [
+    { name: "Harvard", logo: "/harvard-logo.png" },
+    { name: "Stanford", logo: "/stanford-logo.png" },
+    { name: "MIT", logo: "/mit-logo.png" },
+    { name: "Berkeley", logo: "/berkeley-logo.png" }
+  ];
+
+  const benefitGroups = [
+    {
+      icon: <BookOpen className="w-12 h-12 text-black" />,
+      title: "Students",
+      description: "Prepare for technical, behavioral, and industry-specific interviews"
+    },
+    {
+      icon: <Target className="w-12 h-12 text-black" />,
+      title: "Career Changers",
+      description: "Build confidence and master interview skills across different domains"
+    },
+    {
+      icon: <Trophy className="w-12 h-12 text-black" />,
+      title: "Professionals",
+      description: "Upgrade your interviewing techniques and stay competitive in the job market"
+    }
+  ];
+
+  const userReviews = [
+    {
+      name: "Sarah Chen",
+      role: "Software Engineer, Google",
+      review: "MockInterviewerGPT transformed my interview preparation. I landed my dream job at Google!",
+      rating: 5
+    },
+    {
+      name: "Michael Rodriguez",
+      role: "Product Manager, Stripe",
+      review: "The AI feedback is incredibly detailed and helped me improve my communication skills.",
+      rating: 5
+    },
+    {
+      name: "Emily Wong",
+      role: "Data Scientist, Amazon",
+      review: "Realistic scenarios and personalized coaching made all the difference in my interviews.",
+      rating: 5
+    },
+    {
+      name: "Alex James",
+      role: "Software Engineer, Google",
+      review: "MockInterviewerGPT has boosted my interview preparation. I landed my dream job at Google!",
+      rating: 5
+    },
+    {
+      name: "Michael Vaughn",
+      role: "Product Manager, Stripe",
+      review: "The AI feedback is incredibly detailed and helped me improve my communication skills.",
+      rating: 5
+    },
+    {
+      name: "Willy Wong",
+      role: "Data Scientist, Amazon",
+      review: "Realistic scenarios and personalized coaching made all the difference in my interviews.",
+      rating: 5
+    }
+  ];
+
   return (
-    <div className="relative flex flex-col justify-between min-h-screen overflow-hidden">
-      <Header />
+    <div className="min-h-screen bg-white -mt-20">
+     
+      <HeroSection/>
 
-      {/* Add spacing above the Hero Section */}
-      <div className="mt-32"></div>
-
-      {/* Hero Section (Your Personal AI Interview Coach) */}
-      <section className="flex flex-1 items-center justify-center z-50 py-16">
-        <div className="text-center max-w-screen-lg px-4">
-          <h1 className="mb-4 text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white">
-            Your Personal AI Interview Coach
-          </h1>
-          <p className="mb-8 text-lg md:text-xl text-gray-500 dark:text-gray-400">
-            Double your chances of landing that job offer with our AI-powered interview prep
-          </p>
-          <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <a href="/dashboard" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-white rounded-lg bg-black hover:bg-gray-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-              Get Started for Free
-            </a>
+      {/* Trusted By Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8 text-gray-900">Trusted by Top Institutions Worldwide</h2>
+          <div className="flex justify-center items-center space-x-8 opacity-70">
+            {trustedLogos.map((logo, index) => (
+              <img 
+                key={index} 
+                src={logo.logo} 
+                alt={logo.name} 
+                className="h-16 grayscale hover:grayscale-0 transition-all"
+              />
+            ))}
           </div>
-          <div className="mt-8"></div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <Box bg="gray.50" py={20}>
-        <Container maxW="6xl" textAlign="center">
-          <VStack spacing={10}>
-            <Heading as="h2" size="xl" fontWeight="bold" color="black"> Our Features </Heading>
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-              <Feature title="AI-Powered Learning" text="Personalized mock interviews tailored to your style and pace." />
-              <Feature title="Interactive Exercises" text="Engage with real-world scenarios to practice your interview skills." />
-              <Feature title="Progress Tracking" text="Monitor your improvement with detailed feedback and rating." />
-            </SimpleGrid>
-          </VStack>
-        </Container>
-      </Box>
+      {/* Who Can Benefit Section */}
+      <section className="container mx-auto py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900">Who Can Benefit?</h2>
+          <p className="text-gray-600 mt-4">Our AI interview coach is designed for everyone seeking to excel</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {benefitGroups.map((group, index) => (
+            <Card key={index} className="hover:shadow-lg transition-all">
+              <CardHeader className="flex items-center">
+                {group.icon}
+                <CardTitle className="mt-4">{group.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">{group.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
 
-      {/* Pricing Section */}
-      <Box py={20}>
-        <Container maxW="6xl" textAlign="center">
-          <VStack spacing={12}>
-            <Heading as="h2" size="xl" fontWeight="bold" color="black"> Pricing Plans </Heading>
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-              <PriceWrapper>
-                <VStack spacing={2} flex={1}>
-                  <Text fontWeight="500" fontSize="2xl" color="black">Basic</Text>
-                  <Heading as="h3" size="xl" color="black">$0</Heading>
-                  <Text fontSize="lg" color="gray.500">per month</Text>
-                  <VStack spacing={4} align="start" mt={4}>
-                    <Text color="gray.600">1 mock interview</Text>
-                    <Text color="gray.600">Basic questions</Text>
-                  </VStack>
-                </VStack>
-              </PriceWrapper>
-              <PriceWrapper isRecommended={true}>
-                <VStack spacing={2} flex={1}>
-                  <Text fontWeight="500" fontSize="2xl" color="black">Pro</Text>
-                  <Heading as="h3" size="xl" color="black">$7.99</Heading>
-                  <Text fontSize="lg" color="gray.500">per month</Text>
-                  <VStack spacing={4} align="start" mt={4}>
-                    <Text color="gray.600">3 Allowed attempts</Text>
-                    <Text color="gray.600">Advanced interview scenarios</Text>
-                    <Text color="gray.600">Progress tracking</Text>
-                  </VStack>
-                </VStack>
-              </PriceWrapper>
-              <PriceWrapper>
-                <VStack spacing={2} flex={1}>
-                  <Text fontWeight="500" fontSize="2xl" color="black">Enterprise</Text>
-                  <Heading as="h3" size="xl" color="black">Custom</Heading>
-                  <Text fontSize="lg" color="gray.500">per month</Text>
-                  <VStack spacing={4} align="start" mt={4}>
-                    <Text color="gray.600">Unlimited languages</Text>
-                    <Text color="gray.600">Custom interviews</Text>
-                    <Text color="gray.600">Dedicated support</Text>
-                  </VStack>
-                </VStack>
-              </PriceWrapper>
-            </SimpleGrid>
-          </VStack>
-        </Container>
-      </Box>
-
-      {/* Start your journey Section */}
-      <Box bg="gray.50" color="black" py={20}>
-        <Container maxW="4xl" textAlign="center">
-          <Heading as="h2" size="xl" mb={6} fontWeight="bold"> Start Your Language Learning Journey Today </Heading>
-          <Text fontSize="xl" mb={8} color="gray.600"> Join thousands of satisfied learners and unlock your potential with our AI-powered language app. </Text>
-          <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <a href="/dashboard" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-white rounded-lg bg-black hover:bg-gray-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-              Sign In Now
-            </a>
+      {/* Try an Interactive Demo Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8 text-gray-900">Try an Interactive Demo</h2>
+          <p className="text-gray-600 mb-8">Experience the power of MockInterviewerGPT with our interactive demo.</p>
+          <div className="w-full max-w-4xl mx-auto">
+            <iframe
+              src="https://app.arcade.software/share/1BYhy3FcrntEmZzkd4sz"
+              title="Interactive Demo"
+              width="100%"
+              height="600"
+              style={{ border: 'none', borderRadius: '10px' }}
+            ></iframe>
           </div>
-        </Container>
-      </Box>
+        </div>
+      </section>
+
+      {/* User Reviews Carousel */}
+      <section className="container mx-auto py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900">What Our Users Say</h2>
+        </div>
+        <Carousel 
+          opts={{ align: "start" }}
+          className="w-full max-w-4xl mx-auto"
+        >
+          <CarouselContent>
+            {userReviews.map((review, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <Card className="h-full">
+                  <CardContent className="flex flex-col justify-between p-6 h-full">
+                    <div className="mb-4">
+                      <div className="flex mb-2">
+                        {[...Array(review.rating)].map((_, i) => (
+                          <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                        ))}
+                      </div>
+                      <p className="text-gray-600 italic">"{review.review}"</p>
+                    </div>
+                    <div className="flex items-center">
+                      <Avatar>
+                        <AvatarImage src={`/avatars/${review.name.toLowerCase().replace(' ', '-')}.jpg`} />
+                        <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                      <div className="ml-4">
+                        <h4 className="font-bold">{review.name}</h4>
+                        <p className="text-sm text-gray-500">{review.role}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </section>
+
+      {/* Call to Action */}
+      <section className="bg-gray-900 text-white py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-4">Ready to Ace Your Next Interview?</h2>
+          <p className="text-xl mb-8 text-gray-300">Start your journey to interview mastery today</p>
+          <a href="/dashboard" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-white rounded-lg bg-gray-600 hover:bg-gray-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"> Sign In Now </a>
+        </div>
+      </section>
     </div>
   );
 }
