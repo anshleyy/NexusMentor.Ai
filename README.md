@@ -1,59 +1,37 @@
-## FlashCardGPT
+## MockInterviewerGPT
+MockInterviewerGPT is a tool for students and professionals looking to prepare for interviews with ease. This AI-driven template simulates real interview scenarios, providing tailored questions and feedback to help users improve their responses.
 
-An AI-powered application that creates customized flashcards based on any uploaded text file, making studying easier and more effective.
-
-## Table of Contents
-
-- [Live Demo](#live-demo)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [How to run the project](#how-to-run-the-project)
-- [Screenshots](#screenshots)
-- [How to use the application](#how-to-use-the-application)
-- [Use case](#use-case)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
-- [Contact](#contact)
+Built with Next.js and leveraging Gemini AI, this open-source template is perfect for developers aiming to create advanced interview preparation tools. Whether you're applying for a new job or prepping for a big promotion, this template is designed to streamline your interview prep.
 
 ## Live Demo
-
-https://ai-flash-card-generator-mauve.vercel.app/
+[https://mock-interviewer-gpt.vercel.app/](https://mock-interviewer-gpt.vercel.app/)
 
 ## Features
-- User-friendly access with social login or email/password authentication.
-- Generate flashcards by uploading text files.
-- Each flashcard contains AI-generated questions and answers for effective study.
-- Save, edit, and organize flashcards within custom folders.
+- Secure login with Gmail, facebook or email/password.
+- Experience realistic interview scenarios tailored to your field.
+- Each Interview includes AI-generated questions.
+- Receive AI-curated feedback on your responses.
 
 ## Technologies Used
-- Next.js
-- React
-- OpenAI API Key
-- Clerk authentication
+- Next.js and React for Frontend and Backend
+- Google Gemini API Key for AI-Powered Features
+- Clerk authentication for Authorization
 
+## Use Cases
+- Simulate job interview scenarios with AI-generated questions based on the specified role and experience level.
+- Practice and improve interview responses with instant AI-driven feedback. 
+- Suitable for preparing for technical, behavioural, and general interviews.
 
-## Getting Started
-
-
-**Prerequisites**
-
-- Next.js
-- Clerk credentials
-- OpenAI API Key
-
-**How to run the project**
+## Installation Steps
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/muhammadtalhaamin/AI-Flash-card-generator.git
+    git clone https://github.com/0xmetaschool/mock-interviewer-gpt.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd AI_Flashcard_Generator
+    cd mock-interviewer-gpt
     ```
 
 3. Install dependencies:
@@ -61,61 +39,60 @@ https://ai-flash-card-generator-mauve.vercel.app/
     npm install
     ```
 
-4. Set up environment variables:
+4. Set up the environment variables:
    Create a .env file in the root directory as `.env.local` with the following environment variables:
 
     ```bash
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
     CLERK_SECRET_KEY=
-
     NEXT_PUBLIC_CLERK_SIGN_IN_URL=
     NEXT_PUBLIC_CLERK_SIGN_UP_URL=
-
-    OPENAI_API_KEY=
+    NEXT_PUBLIC_DRIZZLE_DB_URL=
+    sslmode=
+    NEXT_PUBLIC_GEMINI_API_KEY=
+    NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT=
+    NEXT_PUBLIC_INFORMATION=
+    NEXT_PUBLIC_QUESTION_NOTE=
     ```
    
 5. Run the development server:
     ```bash
     npm run dev
     ```
-
-6. Run the development server:
-
-Open the browser and go to `http://localhost:3000`. Ensure that everything is loading and the live preview works as expected.
+    Open the browser and go to `http://localhost:3000`.
 
 ## Screenshots
 
-![Screenshot 1](public/ssc1.png)
-![Screenshot 1](public/ssc2.png)
-![Screenshot 1](public/ssc3.png)
+
+<div style="float:left; display: flex; justify-content: space-between;">
+  <img src="https://github.com/0xmetaschool/mock-interviewer-gpt/blob/main/public/mock-interviewer-gpt-template-landing-page.png?raw=true" alt="MockInterviewerGPT Template Landing Page screenshot" style="width: 49%; border: 2px solid black;" />
+  <img src="https://github.com/0xmetaschool/mock-interviewer-gpt/blob/main/public/mock-interviewer-gpt-template-interview-page.png?raw=true" alt="MockInterviewerGPT Template Interview Page screenshot" style="width: 49%; border: 2px solid black;" />
+</div>
+
+<div style="margin-top: 10px;">
+  <img src="https://github.com/0xmetaschool/mock-interviewer-gpt/blob/main/public/mock-interviewer-gpt-template-interview-page-2.png?raw=true" alt="MockInterviewerGPT Template Interview Page screenshot" style="width: 100%; border: 2px solid black;" />
+</div>
 
 
 ## How to use the application
-
-1. Sign-in using your Google account.
-2. Upload a document to generate flashcards.
-3. Click on any flashcard to view the answer.
-4. Review flashcards through the dashboard, and reuse as needed.
-
+1. Sign in using Google, email, or Facebook account.
+2. Add a new interview and provide the job role, description, and years of experience.
+3. Respond to AI-generated questions and record them for the feedback.
+4. The AI will evaluate the answers and provide you with complete feedback.
+5. History of user interviews is saved on the dashboard and a User can re-attempt the existing interviews from the dashboard as well.
 
 ## Contributing
 
 We love contributions! Here's how you can help make the AI-powered FinanceGuru even better:
 
-1. Fork the project (`gh repo fork https://github.com/muhammadtalhaamin/AI-Flash-card-generator.git`)
+1. Fork the project (`gh repo fork https://github.com/0xmetaschool/ai-mock-interview.git`)
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+5. Submit a Pull Request
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE file](./LICENSE) for details.
-
-
-## Acknowledgments
-
-- OpenAI for powering the flashcard generation
-- Clerk for login and authentication
+This project is licensed under the MIT License - see the [LICENSE file](https://github.com/0xmetaschool/ai-mock-interview/blob/main/LICENSE) for details.
 
 ## Contact
 
