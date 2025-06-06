@@ -15,7 +15,7 @@ function Header() {
     return (
         <div className='flex p-4 items-center justify-between bg-secondary shadow-sm'>
             {/* Logo on the left */}
-            <span className='text-2xl font-bold'>MockInterviewerGPT</span>
+            <span className='text-2xl font-bold'>NexusMentor.Ai</span>
 
             {/* Right-aligned header Menu items */}
             <ul className='flex gap-6 ml-auto'>
@@ -25,12 +25,6 @@ function Header() {
                     ${path == '/dashboard' && 'text-black font-bold'}
                     `}
                     >Dashboard</li>
-                </Link>
-                <Link href={"/dashboard/upgrade"}>
-                    <li className={`hover:text-black hover:font-bold transition-all
-                    cursor-pointer
-                    ${path == '/dashboard/upgrade' && 'text-black font-bold'}
-                    `}>Upgrade</li>
                 </Link>
             </ul>
 
